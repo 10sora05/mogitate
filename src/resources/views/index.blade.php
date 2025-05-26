@@ -25,15 +25,15 @@
             <div class="item__content">
                 <div class="item">
                     <div class="item__img">
-                        <img src="{{ $item['image'] }}" alt="Uploaded Image">
+                        <img src="{{ asset('fruits-img/' . $item->image) }}" alt="商品画像">
                     </div>
                     <div class="card__content">
                         <form class="update-form">
                             <div class="update-form__item">
-                                <p class="update-form__item-input">{{ $item['name'] }}</p>
+                                <p class="update-form__item-name">{{ $item->name }}</p>
                             </div>
                             <div class="update-form__item">
-                                <p class="update-form__item-input">{{ $item['price'] }}</p>
+                                <p class="update-form__item-price">￥{{ $item->price }}</p>
                             </div>
                         </form>
                     </div>
@@ -42,4 +42,6 @@
             @endforeach
         </div>
     </div>
+</div>
+
 @endsection

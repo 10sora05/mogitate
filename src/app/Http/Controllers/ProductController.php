@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $items = Item::all();
-        return view('index', ['items' => $items]);
+        $items = Product::all(); // Productsテーブルの全件取得
+        return view('index', compact('items')); // ビューに渡す
     }
+        public function register()
+    {
+        return view('register');    }
+
 }

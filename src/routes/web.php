@@ -14,4 +14,5 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', [ProductController::class, 'index']);
+Route::get('/', [ProductController::class, 'index'])->name('products.index');
+Route::get('/register', [ProductController::class, 'register']);
