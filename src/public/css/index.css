@@ -1,0 +1,23 @@
+* {
+    max-width: 100%;
+}
+
+.index__search_navi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.index__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
