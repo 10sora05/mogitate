@@ -9,11 +9,11 @@
 <div class="index__content">
 
     <div class="index__heading">
-        <div class=index__h2>
+        <div class="index__h2">
             <h2>商品一覧</h2>
         </div>
 
-        <div class=index__register>
+        <div class="index__register">
             <span class="register"><a class="register" href="{{ route('products.register') }}">+ 商品を追加</a></span>
         </div>
     </div>
@@ -56,6 +56,31 @@
             @endforeach
         </div>
     </div>
-</div>
 
+    <div class="pagination" style="text-align: center; margin-top: 20px;">
+        {{-- 前のページ --}}
+        @if ($items->currentPage() > 1)
+            <a href="{{ $items->previousPageUrl() }}" style="margin: 0 5px; text-decoration: none;">&lt;</a>
+        @else
+            <span style="margin: 0 5px; color: #ccc;">&lt;</span>
+        @endif
+
+        {{-- 番号リンク --}}
+        @for ($i = 1; $i <= $items->lastPage(); $i++)
+            @if ($i == $items->currentPage())
+                <span style="margin: 0 5px; font-weight: bold;" class="pagination__number">{{ $i }}</span>
+            @else
+                <a href="{{ $items->url($i) }}" style="margin: 0 5px; text-decoration: none;">{{ $i }}</a>
+            @endif
+        @endfor
+
+        {{-- 次のページ --}}
+        @if ($items->hasMorePages())
+            <a href="{{ $items->nextPageUrl() }}" style="margin: 0 5px; text-decoration: none;">&gt;</a>
+        @else
+            <span style="margin: 0 5px; color: #ccc;">&gt;</span>
+        @endif
+    </div>
+
+</div>
 @endsection

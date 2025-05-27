@@ -26,6 +26,8 @@ $keyword = $request->input('keyword');
 
     $items = $query->get();
 
+    $items = $query->paginate(6);
+
     return view('products.index', compact('items', 'keyword', 'sort'));
 }
 
