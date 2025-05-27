@@ -9,14 +9,28 @@
 <div class="index__content">
 
     <div class="index__heading">
-        <h2>商品一覧</h2>
+        <div class=index__h2>
+            <h2>商品一覧</h2>
+        </div>
+
+        <div class=index__register>
+            <span class="register"><a class="register" href="{{ route('products.register') }}">+ 商品を追加</a></span>
+        </div>
     </div>
 
     <div class="index__search_form">
-        <ul>
-            <li><a href="#">商品名</a></li>
-            <li><a href="#">価格</a></li>
-        </ul>
+        <form action="{{ route('products.index') }}" method="GET">
+            <input type="text" name="keyword" value="{{ old('keyword', $keyword ?? '') }}" placeholder="商品名で検索" class="search_form">
+            <button type="submit" class="search_button">検索</button>
+
+            <div style="margin-top: 10px;">
+                <select name="sort" id="sort" onchange="this.form.submit()" class="search_form">
+                    <option value="">-- 並び替えを選択 --</option>
+                    <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>価格が低い順</option>
+                    <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>価格が高い順</option>
+                </select>
+            </div>
+        </form>
     </div>
 
     <div class="index__items">

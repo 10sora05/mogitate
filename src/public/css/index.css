@@ -3,15 +3,35 @@
     background-color: #f0f0f0;
 }
 
-h2 {
+.index__heading {
+    width: 1400px;
+    display: flex;
+    flex-direction: row;
+}
+
+.index__h2 {
+    width: 800px;
     padding-left: 20px;
+}
+
+.index__register {
+    text-align: right;
+    padding-top: 30px;
+    width: 600px;
+}
+
+.register {
+    padding: 10px;
+    background-color: #FFD700;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
 }
 
 .index__search_form {
     float: left;
     width: 200px;
     padding: 10px;
-    border-radius: 5px;
     margin-bottom: 20px;
 }
 
@@ -44,9 +64,23 @@ h2 {
 }
 
 .update-form__item-price {
-    width: 80px;
+    width: 130px;
     float: left;
-    padding-left: 20px;
     font-size: 18px;
     background-color: #fff;
+    text-align: right;
+}
+
+.search_form {
+    width: 180px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.search_button {
+    width: 200px;
+    padding: 10px;
+    background-color: #FFD700;
+    border-radius: 3px;
 }
