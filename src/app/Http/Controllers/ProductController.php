@@ -36,4 +36,38 @@ $keyword = $request->input('keyword');
         // resources/views/products/register.blade.php を表示
         return view('products.register');
     }
+
+    public function edit($id)
+{
+    $product = Product::findOrFail($id);
+    
+    return view('products.edit', compact('product'));
+}
+
+public function update(Request $request, $id)
+{
+    $product = Product::findOrFail($id);
+
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'price' => 'required|numeric|min:0',
+        'description' => 'nullable|string',
+        'image' => 'nullable|image|max:2048',
+    ]);
+
+    $product->name = $request->name;
+    $product->price = $request->price;
+    $product->description = $request->description;
+
+    if ($request->hasFile('image')) {
+        $filename = $request->file('image')->getClientOriginalName();
+        $request->file('image')->move(public_path('fruits-img'), $filename);
+        $product->image = $filename;
+    }
+
+    $product->save();
+
+    return redirect()->route('products.edit', $product->id)->with('success', '商品を更新しました');
+}
+
 }
