@@ -18,3 +18,6 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::get('/products/register', [ProductController::class, 'register'])->name('products.register');
 Route::get('/products/{id}', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+Route::resource('products', ProductController::class);
+Route::get('/products/register', [ProductController::class, 'create'])->name('products.register');
+Route::post('/products/register', [ProductController::class, 'store'])->name('products.store');

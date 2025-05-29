@@ -49,6 +49,19 @@ img {
     padding: 10px;
 }
 
+.season-options {
+    text-align: justify;
+}
+
+label {
+    padding: 20px;
+}
+
+.season-options input[type="checkbox"] {
+    width: 30px;
+    height: 20px;
+}
+
 textarea {
     width: 830px;
     padding: 10px;
@@ -56,7 +69,17 @@ textarea {
 
 .button {
     width: 1000px;
+    display: flex;
+    flex-direction: row;
+}
+
+.button-center {
+    width: 800px;
     text-align: center;
+}
+
+.button-rigth {
+    width: 50px;
 }
 
 .button__return {
@@ -72,4 +95,19 @@ textarea {
     padding: 10px 30px;
     background-color: #FFD700;
     border-radius: 5px;
+}
+
+.button__delete {
+    background: none;
+    background-color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.delete-icon {
+    width: 24px;
+    height: 24px;
 }
