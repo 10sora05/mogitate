@@ -45,7 +45,8 @@ class ProductController extends Controller
     return view('products.edit', compact('product', 'seasons', 'selectedSeasons'));
     }
 
-    public function update(UpdateProductRequest $request, $id){
+    public function update(UpdateProductRequest $request, $id)
+    {
     $product = Product::findOrFail($id);
 
     $product->seasons()->sync($request->input('season_ids', []));
@@ -79,7 +80,8 @@ class ProductController extends Controller
     return view('products.create', compact('seasons'));
     }
 
-    public function store(StoreProductRequest $request){
+    public function store(StoreProductRequest $request)
+    {
     $product = new Product();
     $product->name = $request->name;
     $product->price = $request->price;
