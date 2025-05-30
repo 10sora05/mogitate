@@ -40,7 +40,7 @@
             </div>
 
             <div>
-                <p>価格</p>
+                <p>値段</p>
                 <input type="number" name="price" id="price" value="{{ old('price', $product->price) }}" class="input-text">
                 @error('price')
                     <div style="color: red;">{{ $message }}</div>
