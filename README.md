@@ -10,9 +10,9 @@ mogitate
 プロジェクトをセットアップするために、以下の手順を実行してください。
 
 1. Dockerのビルド
-まず、プロジェクトのルートディレクトリに移動し、Dockerコンテナをビルドします。
-docker compose up -d --build
-これにより、必要なコンテナが構築されます。
+まず、プロジェクトのルートディレクトリに移動し、Dockerコンテナをビルドします。  
+```docker compose up -d --build```  
+これにより、必要なコンテナが構築されます。  
 
 2. env ファイルを作成します。
 cp src/.env.example src/.env
