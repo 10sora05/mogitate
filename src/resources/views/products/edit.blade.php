@@ -18,7 +18,7 @@
         <div class="item__img">
             @if ($product->image)
             <div>
-                <img src="{{ asset('fruits-img/' . $product->image) }}" alt="商品画像">
+                <img src="{{ asset('storage/fruits-img/' . $product->image) }}" alt="商品画像">
                 <p id="file-name">
                     {{ $product->image }}
                 </p>

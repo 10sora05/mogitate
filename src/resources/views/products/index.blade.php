@@ -33,15 +33,15 @@
         </form>
 
         @if(request('sort'))
-    <div class="sort-tag">
-        <span class="sort-tag__label">
-            @if(request('sort') === 'price_asc') 価格が低い順
-            @elseif(request('sort') === 'price_desc') 価格が高い順
-            @endif
-            <a href="{{ route('products.index', array_merge(request()->except('sort'))) }}" class="sort-tag__reset">×</a>
-        </span>
-    </div>
-@endif
+        <div class="sort-tag">
+            <span class="sort-tag__label">
+                @if(request('sort') === 'price_asc') 価格が低い順
+                @elseif(request('sort') === 'price_desc') 価格が高い順
+                @endif
+                <a href="{{ route('products.index', array_merge(request()->except('sort'))) }}" class="sort-tag__reset">×</a>
+            </span>
+        </div>
+        @endif
 
     </div>
 
@@ -52,8 +52,9 @@
                 <div class="item">
                     <div class="item__img">
                         <a href="{{ route('products.edit', $item->id) }}">
-                            <img src="{{ asset('fruits-img/' . $item->image) }}" alt="商品画像">
-                        </a>                    </div>
+                            <img src="{{ asset('storage/fruits-img/' . $item->image) }}" alt="商品画像">
+                        </a>
+                    </div>
                     <div class="card__content">
                         <form class="update-form">
                             <div class="update-form__item">
@@ -73,26 +74,26 @@
     <div class="pagination">
         {{-- 前のページ --}}
         @if ($items->currentPage() > 1)
-            <a href="{{ $items->previousPageUrl() }}" class="pagination__a">&lt;</a>
+        <a href="{{ $items->previousPageUrl() }}" class="pagination__a">&lt;</a>
         @else
-            <span class="pagination__span">&lt;</span>
+        <span class="pagination__span">&lt;</span>
         @endif
 
         {{-- 番号リンク --}}
         @for ($i = 1; $i <= $items->lastPage(); $i++)
             @if ($i == $items->currentPage())
-                <span class="pagination__number">{{ $i }}</span>
+            <span class="pagination__number">{{ $i }}</span>
             @else
-                <a href="{{ $items->url($i) }}" class="pagination__a">{{ $i }}</a>
+            <a href="{{ $items->url($i) }}" class="pagination__a">{{ $i }}</a>
             @endif
-        @endfor
+            @endfor
 
-        {{-- 次のページ --}}
-        @if ($items->hasMorePages())
+            {{-- 次のページ --}}
+            @if ($items->hasMorePages())
             <a href="{{ $items->nextPageUrl() }}" class="pagination__a">&gt;</a>
-        @else
+            @else
             <span class="pagination__span">&gt;</span>
-        @endif
+            @endif
     </div>
 
 </div>
